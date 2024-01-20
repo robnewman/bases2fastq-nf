@@ -10,13 +10,35 @@
       "type": "object",
       "fa_icon": "fas fa-terminal",
       "description": "Define where the pipeline should find input data and save output data.",
-      "required": ["outdir"],
+      "required": ["outdir", "run_dir", "id"],
       "properties": {
         "outdir": {
           "type": "string",
           "format": "directory-path",
           "description": "output b2f dir/url",
           "fa_icon": "fas fa-folder-open"
+        },
+        "run_dir": {
+          "type": "string",
+          "default": "None"
+        },
+        "id": {
+          "type": "string",
+          "default": "None"
+        },
+        "run_manifest_csv": {
+          "type": "string"
+        },
+        "b2f_args": {
+          "type": "string"
+        },
+        "container_url": {
+          "type": "string",
+          "default": "elembio/bases2fastq"
+        },
+        "container_tag": {
+          "type": "string",
+          "default": "latest"
         }
       }
     },
@@ -101,31 +123,5 @@
     {
       "$ref": "#/definitions/generic_options"
     }
-  ],
-  "properties": {
-    "run_dir": {
-      "type": "string",
-      "default": null
-    },
-    "run_manifest_csv": {
-      "type": "string",
-      "default": ""
-    },
-    "id": {
-      "type": "string",
-      "default": null
-    },
-    "b2f_args": {
-      "type": "string",
-      "default": ""
-    },
-    "container_url": {
-      "type": "string",
-      "default": "elembio/bases2fastq"
-    },
-    "container_tag": {
-      "type": "string",
-      "default": "latest"
-    }
-  }
+  ]
 }
