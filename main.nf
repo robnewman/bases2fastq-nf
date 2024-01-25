@@ -18,13 +18,12 @@ log.info """\
 //todo
 
 // import local
-include { B2F } from './modules/local/b2f'
+include { BASES2FASTQ } from './modules/local/bases2fastq'
 
 workflow {
 
-    B2F (
+    BASES2FASTQ (
         params.run_dir,
-        params.id,
         params.run_manifest_csv
      )
 }
