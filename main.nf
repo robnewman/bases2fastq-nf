@@ -20,10 +20,14 @@ log.info """\
 // import local
 include { BASES2FASTQ } from './modules/local/bases2fastq'
 
+def run_manifest_csv = params.run_manifest_csv ? file(params.run_manifest_csv, checkIfExists: true) : []
+
 workflow {
 
     BASES2FASTQ (
+        params.id,
         params.run_dir,
-        params.run_manifest_csv
+        run_manifest_csv
      )
+     
 }

@@ -6,6 +6,7 @@ process BASES2FASTQ {
     container "${params.container_url}:${params.container_tag}"
 
     input:
+    val id
     path run_dir
     path run_manifest_csv, stageAs: 'custom_manifest/*'
 
