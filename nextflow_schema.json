@@ -18,9 +18,6 @@
         "run_dir": {
           "type": "string"
         },
-        "run_manifest_csv": {
-          "type": "string"
-        },
         "b2f_args": {
           "type": "string"
         },
@@ -29,7 +26,7 @@
           "format": "directory-path",
           "description": "output b2f dir/url",
           "fa_icon": "fas fa-folder-open",
-          "default": "./results"
+          "default": "."
         }
       }
     },
@@ -119,7 +116,7 @@
         "tracedir": {
           "type": "string",
           "description": "Directory to keep pipeline Nextflow logs and reports.",
-          "default": "./results/pipeline_info",
+          "default": "./pipeline_info",
           "fa_icon": "fas fa-cogs",
           "hidden": true
         },
