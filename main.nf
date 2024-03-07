@@ -8,7 +8,6 @@ log.info """\
 ================================================
  id: ${params.id}
  run_dir: ${params.run_dir}
- run_manifest_csv: ${params.run_manifest_csv}
  outdir: ${params.outdir}
  b2f_args: ${params.b2f_args}
  b2f_container_url: ${params.b2f_container_url}

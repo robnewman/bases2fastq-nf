@@ -3,10 +3,15 @@ nextflow_pipeline {
     name "Test Workflow main.nf"
     script "main.nf"
 
-    test("Should run without failures") {
+    test("test_basic") {
 
         when {
             params {
+                id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--no-projects --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true'"
                 outdir = "$outputDir"
             }
         }
@@ -18,11 +23,15 @@ nextflow_pipeline {
 
     }
 
-    test("Should run with latest tag") {
+    test("test_custom_manifest_local") {
 
         when {
             params {
-                b2f_version = "latest"
+                 id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--no-projects --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true' -r ${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/RunManifest.csv"
                 outdir = "$outputDir"
             }
         }
@@ -33,5 +42,166 @@ nextflow_pipeline {
         }
 
     }
+
+    test("test_custom_manifest_rundir") {
+
+        when {
+            params {
+                id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--no-projects --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true' -r run/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv"            
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert workflow.trace.succeeded().size() == 1
+        }
+
+    }
+
+    test("test_custom_manifest_s3") {
+
+        when {
+            params {
+                id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--no-projects -r s3://element-public-data/bases2fastq-share/bases2fastq-v2/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv"
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert workflow.trace.succeeded().size() == 1
+        }
+
+    }
+
+    test("test_index_fastq") {
+
+        when {
+            params {
+                id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--settings 'I1Fastq,true' --settings 'I2Fastq,true' --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true'"
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert workflow.trace.succeeded().size() == 1
+        }
+
+    }
+
+    test("test_legacy_fastq") {
+
+        when {
+            params {
+                id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--legacy-fastq"
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert workflow.trace.succeeded().size() == 1
+        }
+
+    }
+
+    test("test_projects") {
+
+        when {
+            params {
+                id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = ""
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert workflow.trace.succeeded().size() == 1
+        }
+
+    }
+
+    test("test_qc_only") {
+
+        when {
+            params {
+                id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--qc-only"
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert workflow.trace.succeeded().size() == 1
+        }
+
+    }
+
+    test("test_s3") {
+
+        when {
+            params {
+                id = "20230404-bases2fastq-sim-151-151-9-9"
+                run_dir = "s3://element-public-data/bases2fastq-share/bases2fastq-v2/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--no-projects"
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert workflow.trace.succeeded().size() == 1
+        }
+
+    }
+
+    test("test_s3_zipped") {
+
+        when {
+            params {
+                id = "20230404-bases2fastq-sim-151-151-9-9-zipped"
+                run_dir = "s3://element-public-data/bases2fastq-share/bases2fastq-v2/20230404-bases2fastq-sim-151-151-9-9-zipped/"
+                b2f_container_url = "elembio/bases2fastq"
+                b2f_container_tag = "latest"
+                b2f_args = "--no-projects"
+                outdir = "$outputDir"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert workflow.trace.succeeded().size() == 1
+        }
+
+    }
+
 
 }
