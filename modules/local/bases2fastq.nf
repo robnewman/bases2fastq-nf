@@ -3,7 +3,7 @@ process BASES2FASTQ {
     label 'process_high'
     scratch true
 
-    container "${params.container_url}:${params.container_tag}"
+    container "${params.b2f_container_url}:${params.b2f_container_tag}"
 
     input:
     val id
@@ -47,7 +47,7 @@ process BASES2FASTQ {
     exec > >(tee \$logfile)
     exec 2>&1
 
-    echo "${params.container_url}:${params.container_tag}"
+    echo "${params.b2f_container_url}:${params.b2f_container_tag}"
     echo "bases2fastq ${run_dir} . -p ${task.cpus} ${run_manifest_option} ${b2f_options}"
 
     bases2fastq \\

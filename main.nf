@@ -10,8 +10,8 @@ log.info """\
  id: ${params.id}
  outdir: ${params.outdir}
  b2f_args: ${params.b2f_args}
- container_url: ${params.container_url}
- container_tag: ${params.container_tag}
+ b2f_container_url: ${params.b2f_container_url}
+ b2f_container_tag: ${params.b2f_container_tag}
  """
 
 // Check mandatory parameters
