@@ -5,26 +5,18 @@
   "description": "Fastq Generation for AVITI",
   "type": "object",
   "definitions": {
-    "input_output_options": {
-      "title": "Input/output options",
+    "bases2fastq_options": {
+      "title": "Bases2fastq options",
       "type": "object",
       "fa_icon": "fas fa-terminal",
-      "description": "Define where the pipeline should find input data and save output data.",
-      "required": ["outdir", "run_dir", "id"],
+      "description": "input/output options for bases2fastq",
+      "required": ["id", "run_dir", "outdir"],
       "properties": {
-        "outdir": {
-          "type": "string",
-          "format": "directory-path",
-          "description": "output b2f dir/url",
-          "fa_icon": "fas fa-folder-open"
+        "id": {
+          "type": "string"
         },
         "run_dir": {
-          "type": "string",
-          "default": "None"
-        },
-        "id": {
-          "type": "string",
-          "default": "None"
+          "type": "string"
         },
         "run_manifest_csv": {
           "type": "string"
@@ -32,13 +24,40 @@
         "b2f_args": {
           "type": "string"
         },
-        "container_url": {
+        "outdir": {
+          "type": "string",
+          "format": "directory-path",
+          "description": "output b2f dir/url",
+          "fa_icon": "fas fa-folder-open",
+          "default": "./results"
+        }
+      }
+    },
+    "infrastructure_resources": {
+      "title": "Infrastructure / Resources",
+      "type": "object",
+      "description": "cpu/mem and container options",
+      "default": "",
+      "properties": {
+        "b2f_container_url": {
           "type": "string",
           "default": "elembio/bases2fastq"
         },
-        "container_tag": {
+        "b2f_container_tag": {
           "type": "string",
           "default": "latest"
+        },
+        "max_cpus": {
+          "type": "integer",
+          "default": 48
+        },
+        "max_memory": {
+          "type": "string",
+          "default": "192.GB"
+        },
+        "max_time": {
+          "type": "string",
+          "default": "4.h"
         }
       }
     },
@@ -100,7 +119,7 @@
         "tracedir": {
           "type": "string",
           "description": "Directory to keep pipeline Nextflow logs and reports.",
-          "default": "${params.outdir}/pipeline_info",
+          "default": "./results/pipeline_info",
           "fa_icon": "fas fa-cogs",
           "hidden": true
         },
@@ -115,7 +134,10 @@
   },
   "allOf": [
     {
-      "$ref": "#/definitions/input_output_options"
+      "$ref": "#/definitions/bases2fastq_options"
+    },
+    {
+      "$ref": "#/definitions/infrastructure_resources"
     },
     {
       "$ref": "#/definitions/institutional_config_options"
