@@ -1,0 +1,24 @@
+elembio/bases2fastq:latest
+bases2fastq run/20230404-bases2fastq-sim-151-151-9-9 . -p 4 --no-projects --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true' -r run/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv
+bases2fastq version: 1.6.0.1076919070, use subject to license available at elementbiosciences.com
+Run command: bases2fastq run/20230404-bases2fastq-sim-151-151-9-9 . -p 4 --no-projects --settings R1AdapterTrim,true --settings R2AdapterTrim,true -r run/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv 
+Parsing run manifest run/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv
+Skipping adapter sequence detection
+Starting FASTQ generation for 20230404-Bases2Fastq-Sim
+Processing tile L1R04C01S1
+Aggregating run stats
+[20230404-Bases2Fastq-Sim] Generating HTML QC-report
+========= Stats Summary =========
+Polony count:      10,000
+Reads assigned:    98.450%
+Mean Q score:      40.726
+Percent Q30:       93.146%
+Percent Q40:       79.074%
+Assigned yield:    0.003 Gb
+=================================
+============ Timing =============
+FASTQ generation:    0.334s
+Stats reports:       3.461s
+Total elapsed:       3.795s
+=================================
+Output stored in .

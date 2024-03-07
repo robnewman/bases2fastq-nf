@@ -2,4 +2,4 @@
 
 Nextflow wrapper for Element Bases2Fastq
 
-```nextflow run . -profile docker,test``
+`nextflow run . -profile test`

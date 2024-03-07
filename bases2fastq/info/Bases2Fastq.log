@@ -1,0 +1,22 @@
+<2024-03-07 20:36:34> [info] main: bases2fastq version: 1.6.0.1076919070, use subject to license available at elementbiosciences.com
+<2024-03-07 20:36:34> [info] main->CommandLineArgs: Run command: bases2fastq run/20230404-bases2fastq-sim-151-151-9-9 . -p 4 --no-projects --settings R1AdapterTrim,true --settings R2AdapterTrim,true -r run/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv 
+<2024-03-07 20:36:34> [info] main->RunManifest: Parsing run manifest run/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv
+<2024-03-07 20:36:34> [info] main: Skipping adapter sequence detection
+<2024-03-07 20:36:34> [info] main: Starting FASTQ generation for 20230404-Bases2Fastq-Sim
+<2024-03-07 20:36:34> [info] TileWorker: Processing tile L1R04C01S1
+<2024-03-07 20:36:34> [info] main: Aggregating run stats
+<2024-03-07 20:36:34> [info] StatsAggregationWorker: [20230404-Bases2Fastq-Sim] Generating HTML QC-report
+<2024-03-07 20:36:38> [info] main: ========= Stats Summary =========
+<2024-03-07 20:36:38> [info] main: Polony count:      10,000
+<2024-03-07 20:36:38> [info] main: Reads assigned:    98.450%
+<2024-03-07 20:36:38> [info] main: Mean Q score:      40.726
+<2024-03-07 20:36:38> [info] main: Percent Q30:       93.146%
+<2024-03-07 20:36:38> [info] main: Percent Q40:       79.074%
+<2024-03-07 20:36:38> [info] main: Assigned yield:    0.003 Gb
+<2024-03-07 20:36:38> [info] main: =================================
+<2024-03-07 20:36:38> [info] main: ============ Timing =============
+<2024-03-07 20:36:38> [info] main: FASTQ generation:    0.334s
+<2024-03-07 20:36:38> [info] main: Stats reports:       3.461s
+<2024-03-07 20:36:38> [info] main: Total elapsed:       3.795s
+<2024-03-07 20:36:38> [info] main: =================================
+<2024-03-07 20:36:38> [info] main: Output stored in .
