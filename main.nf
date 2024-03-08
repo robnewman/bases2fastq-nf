@@ -6,7 +6,6 @@ log.info """\
 ================================================
   B A S E S 2 F A S T Q - N F   P I P E L I N E
 ================================================
- id: ${params.id}
  b2f_run_dir: ${params.b2f_run_dir} 
  b2f_args: ${params.b2f_args}
  b2f_container_url: ${params.b2f_container_url}
