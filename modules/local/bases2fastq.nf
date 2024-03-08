@@ -6,7 +6,6 @@ process BASES2FASTQ {
     container "${params.b2f_container_url}:${params.b2f_container_tag}"
 
     input:
-    val id
     path b2f_run_dir, stageAs: 'run/*'
     
     output:
