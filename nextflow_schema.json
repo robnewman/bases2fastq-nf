@@ -10,12 +10,8 @@
       "type": "object",
       "fa_icon": "fas fa-terminal",
       "description": "input/output options for bases2fastq",
-      "required": ["id", "run_dir", "outdir"],
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "run_dir": {
+        "b2f_run_dir": {
           "type": "string"
         },
         "b2f_args": {
@@ -28,7 +24,8 @@
           "fa_icon": "fas fa-folder-open",
           "default": "."
         }
-      }
+      },
+      "required": ["b2f_run_dir"]
     },
     "infrastructure_resources": {
       "title": "Infrastructure / Resources",
