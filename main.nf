@@ -18,7 +18,6 @@ include { BASES2FASTQ } from './modules/local/bases2fastq'
 workflow {
 
     BASES2FASTQ (
-        params.id,
         params.b2f_run_dir
      )
      
