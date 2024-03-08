@@ -1,5 +1,5 @@
 process BASES2FASTQ {
-    tag "$id"
+    tag "${b2f_run_dir.baseName}"
     label 'process_high'
     //scratch true
 
@@ -38,7 +38,7 @@ process BASES2FASTQ {
     task.ext.when == null || task.ext.when
 
     script:
-
+    
     """
     logfile=run.log
     exec > >(tee \$logfile)
