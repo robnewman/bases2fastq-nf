@@ -7,7 +7,7 @@ process BASES2FASTQ {
 
     input:
     val id
-    path run_dir, stageAs: 'run/*'
+    path b2f_run_dir, stageAs: 'run/*'
     
     output:
 
@@ -45,10 +45,10 @@ process BASES2FASTQ {
     exec 2>&1
 
     echo "${params.b2f_container_url}:${params.b2f_container_tag}"
-    echo "bases2fastq ${run_dir} . -p ${task.cpus} ${params.b2f_args}"
+    echo "bases2fastq ${b2f_run_dir} . -p ${task.cpus} ${params.b2f_args}"
 
     bases2fastq \\
-        ${run_dir} \\
+        ${b2f_run_dir} \\
         . \\
         -p ${task.cpus} \\
         ${params.b2f_args}

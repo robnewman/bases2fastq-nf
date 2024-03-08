@@ -8,7 +8,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--no-projects --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true'"
@@ -28,7 +28,7 @@ nextflow_pipeline {
         when {
             params {
                  id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--no-projects --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true' -r ${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/RunManifest.csv"
@@ -48,7 +48,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--no-projects --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true' -r run/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv"            
@@ -68,7 +68,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--no-projects -r s3://element-public-data/bases2fastq-share/bases2fastq-v2/20230404-bases2fastq-sim-151-151-9-9/RunManifest_custom.csv"
@@ -88,7 +88,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--settings 'I1Fastq,true' --settings 'I2Fastq,true' --settings 'R1AdapterTrim,true' --settings 'R2AdapterTrim,true'"
@@ -108,7 +108,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--legacy-fastq"
@@ -128,7 +128,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = ""
@@ -148,7 +148,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--qc-only"
@@ -168,7 +168,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
-                run_dir = "s3://element-public-data/bases2fastq-share/bases2fastq-v2/20230404-bases2fastq-sim-151-151-9-9/"
+                b2f_run_dir = "s3://element-public-data/bases2fastq-share/bases2fastq-v2/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--no-projects"
@@ -188,7 +188,7 @@ nextflow_pipeline {
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9-zipped"
-                run_dir = "s3://element-public-data/bases2fastq-share/bases2fastq-v2/20230404-bases2fastq-sim-151-151-9-9-zipped/"
+                b2f_run_dir = "s3://element-public-data/bases2fastq-share/bases2fastq-v2/20230404-bases2fastq-sim-151-151-9-9-zipped/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 b2f_args = "--no-projects"
