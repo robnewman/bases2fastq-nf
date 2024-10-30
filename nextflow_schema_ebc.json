@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/elembio/base2fastq/master/nextflow_schema.json",
+  "title": "elembio/base2fastq pipeline parameters",
+  "description": "FASTQ generation using Bases2Fastq for Element AVITI System",
+  "type": "object",
+  "$defs": {
+    "run_manifest_input": {
+      "type": "string",
+      "description": "Define the location of an alternate run manifest for the execution instead of the RunManifest.csv",
+      "format": "file-path",
+      "mimetype": "csv",
+      "title": "Run Manifest Input"
+    },
+    "bases2fastq_arguments": {
+      "title": "Bases2Fastq Arguments",
+      "type": "object",
+      "description": "",
+      "default": "",
+      "properties": {
+        "detect_adapters": {
+          "type": "string",
+          "description": "Detect adapter sequences and override any sequences present in the run manifest."
+        },
+        "legacy_fastq": {
+          "type": "string",
+          "description": "apply a legacy file naming convention to FASTQ files, such as SampleName_S1_L001_R1_001.fastq.gz. Some secondary analysis software might require this naming convention."
+        },
+        "filter_mask": {
+          "type": "string",
+          "description": "Apply a custom base mask to specify the cycles that determine if a read passes filter. Separate each read section with a hyphen. The argument is only compatible with Cloudbreak or Cloudbreak Freestyle chemistry"
+        },
+        "flowcell_id": {
+          "type": "string",
+          "description": "Overwrite the flow cell ID in RunParameters.json with another flow cell ID. You can use this argument to add a missing flow cell ID."
+        },
+        "force_index_orientation": {
+          "type": "boolean",
+          "description": "Perform demultiplexing without detecting the index sequence orientation. When used, Bases2Fastq applies the orientation recorded in the run manifest."
+        },
+        "num_unassigned": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "description": "Indicates the maximum number of unassigned sequences to support."
+        },
+        "settings": {
+          "type": "string",
+          "description": "Overwrite run manifest settings."
+        },
+        "split_lanes": {
+          "type": "boolean",
+          "description": "Divide FASTQ files by flow cell lane."
+        }
+      }
+    },
+    "advanced_settings": {
+      "title": "Advanced Settings",
+      "type": "object",
+      "description": "",
+      "default": "",
+      "properties": {
+        "qc_only": {
+          "type": "boolean",
+          "description": "Enable QC-only mode, which generates a representative view of run metrics on one tile and no FASTQ files. Executions in QC-only mode are faster than executions with demultiplexing"
+        },
+        "exclude_tile": {
+          "type": "string",
+          "description": "Specify subset of tiles to exclude from processing. Use a regex to identify the tiles (e.g. 'L1R..C..S.')"
+        },
+        "include_tile": {
+          "type": "string",
+          "description": "Specify subset of tiles to include in processing. Use a regex to identify the tiles (e.g. 'L1R..C..S.'). To include specific tiles, you must first exclude all tiles with the exclude-tile parameter."
+        },
+        "b2f_args": {
+          "type": "string",
+          "description": "Send a string of arguments to bases2fastq. Recomended for local development only."
+        },
+        "b2f_container_tag": {
+          "type": "string",
+          "default": "latest",
+          "description": "Execute with a specific version of bases2fastq.",
+          "enum": ["1.8.0", "2.0.0", "2.1.0-rc", "latest"]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/$defs/run_manifest_input"
+    },
+    {
+      "$ref": "#/$defs/bases2fastq_arguments"
+    },
+    {
+      "$ref": "#/$defs/advanced_settings"
+    }
+  ]
+}
