@@ -159,17 +159,19 @@
     },
     "b2f_container_url": {
       "type": "string",
-      "default": "elembio/bases2fastq"
+      "default": "docker.io/elembio/bases2fastq"
     },
     "b2f_container_tag": {
       "type": "string",
       "default": "latest"
     },
     "exclude_tile": {
-      "type": "string"
+      "type": "string",
+      "default": "[]"
     },
     "include_tile": {
-      "type": "string"
+      "type": "string",
+      "default": "[]"
     },
     "filter_mask": {
       "type": "string"
@@ -194,7 +196,8 @@
       "type": "string"
     },
     "settings": {
-      "type": "string"
+      "type": "string",
+      "default": "[]"
     },
     "split_lanes": {
       "type": "boolean"
