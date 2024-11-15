@@ -206,7 +206,6 @@ nextflow_pipeline {
 
     test("test_legacy_fastq_option") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -227,7 +226,6 @@ nextflow_pipeline {
 
     test("test_detect_adapters_option") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -248,7 +246,6 @@ nextflow_pipeline {
 
     test("test_exclude_tile_option_multiple") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -269,7 +266,6 @@ nextflow_pipeline {
 
     test("test_exclude_tile_option_single") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -289,6 +285,7 @@ nextflow_pipeline {
     }
 
     test("test_include_tile_option_single") {
+        tag "local" 
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -310,7 +307,6 @@ nextflow_pipeline {
 
     test("test_filter_mask_option") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -331,7 +327,6 @@ nextflow_pipeline {
 
     test("test_flowcell_id_option") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -352,7 +347,6 @@ nextflow_pipeline {
 
     test("test_force_index_orientation_option") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -373,7 +367,6 @@ nextflow_pipeline {
 
     test("test_num_unassigned_option") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -394,7 +387,6 @@ nextflow_pipeline {
 
     test("test_qc_only_option") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -415,7 +407,6 @@ nextflow_pipeline {
 
     test("test_settings_option_multiple") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -436,7 +427,6 @@ nextflow_pipeline {
 
     test("test_settings_option_single") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -457,7 +447,6 @@ nextflow_pipeline {
 
     test("test_split_lanes_option") {
         tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
