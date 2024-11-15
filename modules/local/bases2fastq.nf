@@ -56,9 +56,12 @@ process BASES2FASTQ {
     def filter_mask_option = params.filter_mask ? "--filter-mask ${params.filter_mask}" : ""
     def flowcell_id_option = params.flowcell_id ? "--flowcell-id ${params.flowcell_id}" : ""
     def num_unassigned_option = params.num_unassigned ? "--num-unassigned ${params.num_unassigned}" : ""
+    def b2f_args_option = params.b2f_args ? "${params.b2f_args}" : ""
+
     
     //file input
     def run_manifest_option = params.run_manifest ? " --r ${params.run_manifest}" : ""
+
 
 
     """
