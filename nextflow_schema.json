@@ -145,7 +145,7 @@
     }
   ],
   "properties": {
-    "b2f_run_dir": {
+    "run_dir": {
       "type": "string"
     },
     "b2f_args": {

@@ -6,7 +6,7 @@ log.info """
 ================================================
   B A S E S 2 F A S T Q - N F   P I P E L I N E
 ================================================
- b2f_run_dir: ${params.b2f_run_dir} 
+ run_dir: ${params.run_dir} 
  b2f_args: ${params.b2f_args}
  detect_adapters: ${params.detect_adapters}
  exclude_tile: ${params.exclude_tile}
@@ -34,7 +34,7 @@ include { BASES2FASTQ } from './modules/local/bases2fastq'
 workflow {
 
     BASES2FASTQ (
-        params.b2f_run_dir
+        params.run_dir
      )
 }
 

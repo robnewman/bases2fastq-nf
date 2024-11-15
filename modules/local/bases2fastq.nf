@@ -1,12 +1,12 @@
 process BASES2FASTQ {
-    tag "${b2f_run_dir.baseName}"
+    tag "${run_dir.baseName}"
     label 'process_high'
     //scratch true
 
     container "${params.b2f_container_url}:${params.b2f_container_tag}"
 
     input:
-    path b2f_run_dir, stageAs: 'run/*'
+    path run_dir, stageAs: 'run/*'
     
     output:
 
@@ -67,9 +67,9 @@ process BASES2FASTQ {
     exec 2>&1
 
     echo "${params.b2f_container_url}:${params.b2f_container_tag}"
-    echo "bases2fastq ${b2f_run_dir} . -p ${task.cpus} ${params.b2f_args}  ${legacy_fastq_option} ${detect_adapters_option} ${exclude_tile_option} ${include_tile_option} ${filter_mask_option} ${flowcell_id_option} ${force_index_orientation_option} ${no_error_on_invalid_option} ${qc_only_option} ${split_lanes_option}  ${settings_option} ${num_unassigned_option}"
+    echo "bases2fastq ${run_dir} . -p ${task.cpus} ${params.b2f_args}  ${legacy_fastq_option} ${detect_adapters_option} ${exclude_tile_option} ${include_tile_option} ${filter_mask_option} ${flowcell_id_option} ${force_index_orientation_option} ${no_error_on_invalid_option} ${qc_only_option} ${split_lanes_option}  ${settings_option} ${num_unassigned_option}"
     echo "bases2fastq \\
-        ${b2f_run_dir} \\
+        ${run_dir} \\
         . \\
         -p ${task.cpus} \\
         ${params.b2f_args} \\
@@ -89,7 +89,7 @@ process BASES2FASTQ {
 
 
     bases2fastq \\
-        ${b2f_run_dir} \\
+        ${run_dir} \\
         . \\
         -p ${task.cpus} \\
         ${params.b2f_args} \\
