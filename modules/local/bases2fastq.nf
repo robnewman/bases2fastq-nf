@@ -70,12 +70,12 @@ process BASES2FASTQ {
     exec 2>&1
 
     echo "${params.b2f_container_url}:${params.b2f_container_tag}"
-    echo "bases2fastq ${run_dir} . -p ${task.cpus} ${params.b2f_args}  ${legacy_fastq_option} ${detect_adapters_option} ${exclude_tile_option} ${include_tile_option} ${filter_mask_option} ${flowcell_id_option} ${force_index_orientation_option} ${no_error_on_invalid_option} ${qc_only_option} ${split_lanes_option}  ${settings_option} ${num_unassigned_option}"
+    echo "bases2fastq ${run_dir} . -p ${task.cpus} ${b2f_args_option}  ${legacy_fastq_option} ${detect_adapters_option} ${exclude_tile_option} ${include_tile_option} ${filter_mask_option} ${flowcell_id_option} ${force_index_orientation_option} ${no_error_on_invalid_option} ${qc_only_option} ${split_lanes_option}  ${settings_option} ${num_unassigned_option}"
     echo "bases2fastq \\
         ${run_dir} \\
         . \\
         -p ${task.cpus} \\
-        ${params.b2f_args} \\
+        ${b2f_args_option} \\
         ${legacy_fastq_option} \\
         ${detect_adapters_option} \\
         ${exclude_tile_option} \\
