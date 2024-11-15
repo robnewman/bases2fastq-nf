@@ -27,7 +27,7 @@ nextflow_pipeline {
         tag "local"
         when {
             params {
-                 id = "20230404-bases2fastq-sim-151-151-9-9"
+                id = "20230404-bases2fastq-sim-151-151-9-9"
                 run_dir = "${baseDir}/data/20230404-bases2fastq-sim-151-151-9-9/"
                 b2f_container_url = "elembio/bases2fastq"
                 b2f_container_tag = "latest"
@@ -289,8 +289,6 @@ nextflow_pipeline {
     }
 
     test("test_include_tile_option_single") {
-        tag "local" 
-        tag "new"
         when {
             params {
                 id = "20230404-bases2fastq-sim-151-151-9-9"
@@ -298,7 +296,7 @@ nextflow_pipeline {
                 b2f_container_url = "docker.io/elembio/bases2fastq"
                 b2f_container_tag = "latest"
                 exclude_tile= ["L.R..C..S."]
-                include_tile=["L1R..C1.S."]
+                include_tile=["L2R2.C..S."]
                 outdir = "$outputDir"
             }
         }
