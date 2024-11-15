@@ -95,7 +95,7 @@ process BASES2FASTQ {
         ${run_dir} \\
         . \\
         -p ${task.cpus} \\
-        ${params.b2f_args} \\
+        ${b2f_args_option} \\
         ${legacy_fastq_option} \\
         ${detect_adapters_option} \\
         ${exclude_tile_option} \\
