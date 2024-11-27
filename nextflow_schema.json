@@ -84,13 +84,11 @@
       "type": "object",
       "fa_icon": "fas fa-terminal",
       "description": "Define where the pipeline should find input data and save output data.",
-      "required": ["outdir"],
+      "required": ["run_dir", "outdir"],
       "properties": {
         "run_dir": {
-          "type": "string"
-        },
-        "run_manifest": {
-          "type": "string"
+          "type": "string",
+          "description": "Input run directory"
         },
         "outdir": {
           "type": "string",
@@ -98,6 +96,10 @@
           "description": "The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.",
           "fa_icon": "fas fa-folder-open",
           "default": "."
+        },
+        "run_manifest": {
+          "type": "string",
+          "description": "(optional) path to custom RunManifest.csv"
         }
       }
     },
@@ -159,6 +161,27 @@
           "type": "string"
         }
       }
+    },
+    "multiqc": {
+      "title": "MultiQC",
+      "type": "object",
+      "description": "",
+      "default": "",
+      "properties": {
+        "multiqc_title": {
+          "type": "string"
+        },
+        "max_multiqc_email_size": {
+          "type": "string",
+          "default": "25.MB"
+        },
+        "multiqc_logo": {
+          "type": "string"
+        },
+        "multiqc_config": {
+          "type": "string"
+        }
+      }
     }
   },
   "allOf": [
@@ -173,6 +196,9 @@
     },
     {
       "$ref": "#/$defs/infrastructure"
+    },
+    {
+      "$ref": "#/$defs/multiqc"
     }
   ]
 }
