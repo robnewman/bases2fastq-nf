@@ -5,6 +5,30 @@
   "description": "FASTQ generation using Bases2Fastq for Element AVITI System",
   "type": "object",
   "$defs": {
+    "input_output_options": {
+      "title": "Input/output options",
+      "type": "object",
+      "fa_icon": "fas fa-terminal",
+      "description": "Define where the pipeline should find input data and save output data.",
+      "required": ["run_dir", "outdir"],
+      "properties": {
+        "run_dir": {
+          "type": "string",
+          "description": "Input run directory"
+        },
+        "outdir": {
+          "type": "string",
+          "format": "directory-path",
+          "description": "The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.",
+          "fa_icon": "fas fa-folder-open",
+          "default": "."
+        },
+        "run_manifest": {
+          "type": "string",
+          "description": "(optional) path to custom RunManifest.csv"
+        }
+      }
+    },
     "bases2fastq": {
       "title": "Bases2Fastq",
       "type": "object",
@@ -76,30 +100,6 @@
         "b2f_args": {
           "type": "string",
           "description": "Send a string of arguments to Bases2Fastq. Recommended for local testing & development only."
-        }
-      }
-    },
-    "input_output_options": {
-      "title": "Input/output options",
-      "type": "object",
-      "fa_icon": "fas fa-terminal",
-      "description": "Define where the pipeline should find input data and save output data.",
-      "required": ["run_dir", "outdir"],
-      "properties": {
-        "run_dir": {
-          "type": "string",
-          "description": "Input run directory"
-        },
-        "outdir": {
-          "type": "string",
-          "format": "directory-path",
-          "description": "The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.",
-          "fa_icon": "fas fa-folder-open",
-          "default": "."
-        },
-        "run_manifest": {
-          "type": "string",
-          "description": "(optional) path to custom RunManifest.csv"
         }
       }
     },
@@ -186,13 +186,13 @@
   },
   "allOf": [
     {
+      "$ref": "#/$defs/input_output_options"
+    },
+    {
       "$ref": "#/$defs/bases2fastq"
     },
     {
       "$ref": "#/$defs/bases2fastq_advanced_settings"
-    },
-    {
-      "$ref": "#/$defs/input_output_options"
     },
     {
       "$ref": "#/$defs/infrastructure"
