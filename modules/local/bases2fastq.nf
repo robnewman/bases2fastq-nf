@@ -39,7 +39,7 @@ process BASES2FASTQ {
     script:
 
     // run manifest
-    def run_manifest_option = params.run_manifest ? " --r ${params.run_manifest}" : ""
+    def run_manifest_option = params.run_manifest ? " -r ${params.run_manifest}" : ""
 
     // b2f args
     def legacy_fastq_option = params.legacy_fastq ? "--legacy-fastq" : ""
