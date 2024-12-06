@@ -37,33 +37,30 @@ process BASES2FASTQ {
     task.ext.when == null || task.ext.when
 
     script:
-    
-    //true false params to appluy the b2f option
+
+    // run manifest
+    def run_manifest_option = params.run_manifest ? " --r ${params.run_manifest}" : ""
+
+    // b2f args
     def legacy_fastq_option = params.legacy_fastq ? "--legacy-fastq" : ""
     def detect_adapters_option = params.detect_adapters ? "--detect-adapters" : ""
     def force_index_orientation_option = params.force_index_orientation ? "--force-index-orientation" : ""
     def no_error_on_invalid_option = params.no_error_on_invalid ? "--no-error-on-invalid" : ""
     def qc_only_option = params.qc_only ? "--qc-only" : ""
     def split_lanes_option = params.split_lanes ? "--split_lanes" : ""
-
-
-    //arry of strings input params
+    def projects_option = params.projects ? "" : " --no-projects"
+    def filter_mask_option = params.filter_mask ? "--filter-mask ${params.filter_mask}" : ""
+    def flowcell_id_option = params.flowcell_id ? "--flowcell-id ${params.flowcell_id}" : ""
+    def num_unassigned_option = params.num_unassigned ? "--num-unassigned ${params.num_unassigned}" : ""
+    
+    // advanced tile / settings
     def exclude_tile_option = params.exclude_tile.collect{"--exclude-tile \'${it}\'"}.join(' ')    
     def include_tile_option = params.include_tile.collect{"--include-tile \'${it}\'"}.join(' ')
     def settings_option = params.settings.collect{"--settings \'${it}\'"}.join(' ')
 
-    //string input params
-    def filter_mask_option = params.filter_mask ? "--filter-mask ${params.filter_mask}" : ""
-    def flowcell_id_option = params.flowcell_id ? "--flowcell-id ${params.flowcell_id}" : ""
-    def num_unassigned_option = params.num_unassigned ? "--num-unassigned ${params.num_unassigned}" : ""
+    // advanced options
     def b2f_args_option = params.b2f_args ? "${params.b2f_args}" : ""
-
     
-    //file input
-    def run_manifest_option = params.run_manifest ? " --r ${params.run_manifest}" : ""
-
-
-
     """
     logfile=run.log
     exec > >(tee \$logfile)
@@ -71,31 +68,14 @@ process BASES2FASTQ {
 
     echo "${params.b2f_container_url}:${params.b2f_container_tag}"
     echo "bases2fastq ${run_dir} . -p ${task.cpus} ${b2f_args_option}  ${legacy_fastq_option} ${detect_adapters_option} ${exclude_tile_option} ${include_tile_option} ${filter_mask_option} ${flowcell_id_option} ${force_index_orientation_option} ${no_error_on_invalid_option} ${qc_only_option} ${split_lanes_option}  ${settings_option} ${num_unassigned_option}"
-    echo "bases2fastq \\
+
+     bases2fastq \\
         ${run_dir} \\
         . \\
         -p ${task.cpus} \\
         ${b2f_args_option} \\
-        ${legacy_fastq_option} \\
-        ${detect_adapters_option} \\
-        ${exclude_tile_option} \\
-        ${include_tile_option} \\
-        ${filter_mask_option} \\
-        ${flowcell_id_option} \\
-        ${force_index_orientation_option} \\
-        ${no_error_on_invalid_option} \\
-        ${qc_only_option} \\
-        ${split_lanes_option} \\
-        ${settings_option} \\
-        ${num_unassigned_option}"
-
-
-
-    bases2fastq \\
-        ${run_dir} \\
-        . \\
-        -p ${task.cpus} \\
-        ${b2f_args_option} \\
+        ${run_manifest_option} \\
+        ${projects_option} \\
         ${legacy_fastq_option} \\
         ${detect_adapters_option} \\
         ${exclude_tile_option} \\
