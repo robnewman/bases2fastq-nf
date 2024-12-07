@@ -47,7 +47,7 @@ process BASES2FASTQ {
     def force_index_orientation_option = params.force_index_orientation ? "--force-index-orientation" : ""
     def no_error_on_invalid_option = params.no_error_on_invalid ? "--no-error-on-invalid" : ""
     def qc_only_option = params.qc_only ? "--qc-only" : ""
-    def split_lanes_option = params.split_lanes ? "--split_lanes" : ""
+    def split_lanes_option = params.split_lanes ? "--split-lanes" : ""
     def projects_option = params.projects ? "" : " --no-projects"
     def filter_mask_option = params.filter_mask ? "--filter-mask ${params.filter_mask}" : ""
     def flowcell_id_option = params.flowcell_id ? "--flowcell-id ${params.flowcell_id}" : ""
