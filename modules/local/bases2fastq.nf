@@ -7,9 +7,9 @@ process BASES2FASTQ {
 
     input:
     path run_dir, stageAs: 'run/*'
+    path run_manifest, stageAs: 'runManifest/*'
     
     output:
-
     // run level metrics
     path "Metrics.csv"                     , emit: metrics_csv
     path "IndexAssignment.csv"             , emit: index_assignment_csv
@@ -39,7 +39,7 @@ process BASES2FASTQ {
     script:
 
     // run manifest
-    def run_manifest_option = params.run_manifest ? " -r ${params.run_manifest}" : ""
+    def run_manifest_option = params.run_manifest ? " -r ${run_manifest}" : ""
 
     // b2f args
     def legacy_fastq_option = params.legacy_fastq ? "--legacy-fastq" : ""

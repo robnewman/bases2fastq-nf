@@ -28,13 +28,14 @@ log.info """
  
 include { BASES2FASTQ } from './modules/local/bases2fastq'
 
-//bases2fastq params
-
+//bases2fastq optional path params
+def run_manifest = params.run_manifest ? file(params.run_manifest, checkIfExists: true) : []
 
 workflow {
 
     BASES2FASTQ (
-        params.run_dir
+        params.run_dir,
+        run_manifest
      )
 }
 
