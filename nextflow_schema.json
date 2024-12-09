@@ -94,7 +94,6 @@
         },
         "no_error_on_invalid": {
           "type": "boolean",
-          "default": true,
           "description": "Skip non-critical files that Bases2Fastq identifies as invalid"
         },
         "b2f_args": {
@@ -200,5 +199,11 @@
     {
       "$ref": "#/$defs/multiqc"
     }
-  ]
+  ],
+  "properties": {
+    "projects": {
+      "type": "boolean",
+      "default": true
+    }
+  }
 }
