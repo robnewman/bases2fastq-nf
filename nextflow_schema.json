@@ -63,7 +63,6 @@
         },
         "settings": {
           "type": "array",
-          "default": "[]",
           "description": "Overwrite run manifest settings. May be applies more than once."
         },
         "flowcell_id": {
