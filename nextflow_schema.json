@@ -62,7 +62,7 @@
           "description": "Divide FASTQ files by flow cell lane."
         },
         "settings": {
-          "type": "string",
+          "type": "array",
           "default": "[]",
           "description": "Overwrite run manifest settings. May be applies more than once."
         },
